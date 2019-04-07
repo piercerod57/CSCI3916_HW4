@@ -199,11 +199,10 @@ router.get('/movies/get', function(req, res) {
 				});
 			review.find(function (err2, reviews) {
 					if (err2) res.send(err2);
-					
 					response += JSON.stringify({reviews});
 				});
 			console.log(response += JSON.stringify({response}));
-			res.send(response);
+			res.json(response);
 		}
 	
 });
