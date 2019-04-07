@@ -182,23 +182,25 @@ router.put('/movies/update', function(req, res) {
 
 
 router.get('/movies/get', function(req, res) {
-	//if(){	
-		if(req.headers.review==false){
+	var checkreview = req.headers.review;
+	console.log(checkreview);
+	
+		if(checkreview==false){
 			movie.find(function (err, movies) {
 				if (err) res.send(err);
 				// return the movies
 				res.json(movies);
 			});
 		}else{
-			/*movie.find(function (err, movies) {
-				if (err) res.send(err);
-					review.find(function (err2, reviews) {
+			var response += movie.find(function (err, movies) {
+					if (err) res.send(err);
+				});
+			response += review.find(function (err2, reviews) {
 						if (err2) res.send(err2);
-					});
-				res.json(movies, reviews);
-			});*/
+				});
+			res.json(response);
 		}
-	//}
+	
 });
 
 
