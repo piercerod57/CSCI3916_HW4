@@ -205,7 +205,7 @@ router.get('/movies/get', function(req, res) {
 				});
 				
 			console.log(response);
-			console.log(JSON.stringify({response});
+			console.log(JSON.stringify({response}));
 			res.send(JSON.stringify({response}));
 		}
 	
