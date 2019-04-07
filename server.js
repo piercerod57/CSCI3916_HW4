@@ -250,11 +250,35 @@ router.delete('/movies/delete', function(req, res) {
 //------------------------------------------------
 
 router.post('/reviews/post', function(req, res) {
-	movie.find(function (err, movies) {
-			if (err) res.send(err);
-			// return the movies
-			
-	});
+	var userNew = new User();
+    var reviewNew = new review();
+    userNew.name = req.headers.name;
+    userNew.username = req.headers.username;
+    userNew.password = req.headers.password;
+
+    User.findOne({ username: userNew.username }).select('name username password').exec(function(err, user) {
+        if (err) res.send(err);
+
+        user.comparePassword(userNew.password, function(isMatch){
+            if (isMatch) {
+                var userToken = {id: user._id, username: user.username};
+                var token = jwt.sign(userToken, process.env.SECRET_KEY);
+                //Authenticated, we will now add the review
+                reviewNew.title = req.body.title;
+                if(!reviewNew.title){res.status(401).send({success: false, message: 'Field title empty'});}
+                reviewNew.by = userNew.username;
+                reviewNew.quote = req.body.quote;
+				reviewNew.rating = req.body.rating;
+                reviewNew.save(function(err1) {
+                    if (err1) {return res.send(err1);}
+                    res.json({ success: true, message: 'review created!' });
+                });
+            }
+            else {
+                res.status(401).send({success: false, message: 'Authentication failed.'});
+            }
+        });
+    });
 });
 
 
