@@ -260,31 +260,32 @@ router.post('/reviews', function(req, res) {
 		if (err) {res.status(401).send({success: false, message: 'Authentication .'});}
 		console.log(movies);
 		if (movies == null){res.status(401).send({success: false, message: 'No movie matching that title.'});}
+	
+
+		User.findOne({ username: userNew.username }).select('name username password').exec(function(err, user) {
+			if (err) res.send(err);
+
+			user.comparePassword(userNew.password, function(isMatch){
+				if (isMatch) {
+					var userToken = {id: user._id, username: user.username};
+					var token = jwt.sign(userToken, process.env.SECRET_KEY);
+					//Authenticated, we will now add the review
+					reviewNew.title = req.body.title;
+					if(!reviewNew.title){res.status(401).send({success: false, message: 'Field title empty'});}
+					reviewNew.by = userNew.username;
+					reviewNew.quote = req.body.quote;
+					reviewNew.rating = req.body.rating;
+					reviewNew.save(function(err1) {
+						if (err1) {return res.send(err1);}
+						res.json({ success: true, message: 'review created!' });
+					});
+				}
+				else {
+					res.status(401).send({success: false, message: 'Authentication failed.'});
+				}
+			});
+		});
 	});
-
-    User.findOne({ username: userNew.username }).select('name username password').exec(function(err, user) {
-        if (err) res.send(err);
-
-        user.comparePassword(userNew.password, function(isMatch){
-            if (isMatch) {
-                var userToken = {id: user._id, username: user.username};
-                var token = jwt.sign(userToken, process.env.SECRET_KEY);
-                //Authenticated, we will now add the review
-                reviewNew.title = req.body.title;
-                if(!reviewNew.title){res.status(401).send({success: false, message: 'Field title empty'});}
-                reviewNew.by = userNew.username;
-                reviewNew.quote = req.body.quote;
-				reviewNew.rating = req.body.rating;
-                reviewNew.save(function(err1) {
-                    if (err1) {return res.send(err1);}
-                    res.json({ success: true, message: 'review created!' });
-                });
-            }
-            else {
-                res.status(401).send({success: false, message: 'Authentication failed.'});
-            }
-        });
-    });
 });
 
 
