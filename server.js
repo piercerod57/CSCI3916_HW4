@@ -185,7 +185,7 @@ router.get('/movies/get', function(req, res) {
 	var checkreview = req.headers.review;
 	console.log(checkreview);
 	
-		if(checkreview==="false"){//for some reason the head
+		if(checkreview==="false"){// a string for some reason
 			movie.find(function (err, movies) {
 				if (err) res.send(err);
 				// return the movies
@@ -195,13 +195,15 @@ router.get('/movies/get', function(req, res) {
 			var response;
 			movie.find(function (err, movies) {
 					if (err) res.send(err);
-					res.write(movies);
+					console.log(response += JSON.stringify({reviews}));
+					response += JSON.stringify({movies});
 				});
-			/*review.find(function (err2, reviews) {
+			review.find(function (err2, reviews) {
 					if (err2) res.send(err2);
+					console.log(response += JSON.stringify({reviews}));
 					response += JSON.stringify({reviews});
-				});*/
-			res.end();
+				});
+			res.json(response);
 		}
 	
 });
