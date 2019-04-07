@@ -255,6 +255,10 @@ router.post('/reviews', function(req, res) {
     userNew.name = req.headers.name;
     userNew.username = req.headers.username;
     userNew.password = req.headers.password;
+	
+	movie.find({ title: req.body.title}, function (err, movies) {
+					if (err) res.send(err);
+	});
 
     User.findOne({ username: userNew.username }).select('name username password').exec(function(err, user) {
         if (err) res.send(err);
