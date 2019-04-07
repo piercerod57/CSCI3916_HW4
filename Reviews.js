@@ -14,7 +14,7 @@ mongoose.set('useCreateIndex', true);
 //}
 var ReviewSchema = new Schema({
     title: {type: String, required: true, index: { unique: true}},
-    by: {type: String, required: true, index: { unique: true}},
+    by: {type: String, required: true},
 	quote: {type: String},
     rating: {type: String, enum: ['1 Star',  '2 Star',  '3 Star',  '4 Star',  '5 Star'], required: true},
 });
