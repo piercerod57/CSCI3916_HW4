@@ -182,18 +182,19 @@ router.put('/movies/update', function(req, res) {
 
 
 router.get('/movies/get', function(req, res) {
+	var searchterm = req.headers.search;
 	var checkreview = req.headers.review;
 	console.log(checkreview);
 	
 		if(checkreview==="false"){// a string for some reason
-			movie.find(function (err, movies) {
+			movie.find({ title: searchterm}, function (err, movies) {
 				if (err) res.send(err);
 				// return the movies
 				res.json(movies);
 			});
 		}else{
 			//var response;
-			movie.find(function (err, movies) {
+			movie.find({ title: searchterm, function (err, movies) {
 					if (err) res.send(err);
 					
 					review.find(function (err2, reviews) {
