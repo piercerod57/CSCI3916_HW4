@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="96d6791d-34ea-4312-bdaa-d9d7f45caf70" name="Default" comment="" />
+    <list default="true" id="96d6791d-34ea-4312-bdaa-d9d7f45caf70" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -126,30 +128,31 @@
       <workItem from="1554656113722" duration="1139000" />
       <workItem from="1554657870452" duration="611000" />
       <workItem from="1554659272179" duration="55000" />
-      <workItem from="1554659347521" duration="599000" />
+      <workItem from="1554659347521" duration="604000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15239000" />
+    <option name="totallyTimeSpent" value="15244000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49603805" visible="true" weight="0.2081138" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49557522" visible="true" weight="0.2081138" />
       <window_info id="Structure" order="1" sideWeight="0.49920762" weight="0.24973656" />
-      <window_info id="npm" order="2" sideWeight="0.503962" side_tool="true" visible="true" weight="0.2081138" />
+      <window_info id="npm" order="2" sideWeight="0.50442475" side_tool="true" visible="true" weight="0.2081138" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.1106383" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39914164" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39893618" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.3287234" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3287234" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -164,7 +167,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/server.js</url>
-          <line>292</line>
+          <line>295</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>

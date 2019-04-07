@@ -192,7 +192,8 @@ router.get('/movies/get', function(req, res) {
 				res.json(movies);
 			});
 		}else{
-			var response += movie.find(function (err, movies) {
+			var response;
+			response += movie.find(function (err, movies) {
 					if (err) res.send(err);
 				});
 			response += review.find(function (err2, reviews) {
