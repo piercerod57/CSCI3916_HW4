@@ -256,8 +256,8 @@ router.post('/reviews', function(req, res) {
     userNew.username = req.headers.username;
     userNew.password = req.headers.password;
 	
-	movie.find({ title: req.body.title}, function (err, movies) {
-					if (err) res.send(err);
+	movie.findOne({ title: req.body.title}).select('title').exec(function (err, movies) {
+		if (err) {res.status(401).send({success: false, message: 'No movie matching that title.'});}
 	});
 
     User.findOne({ username: userNew.username }).select('name username password').exec(function(err, user) {
