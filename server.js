@@ -249,7 +249,7 @@ router.delete('/movies/delete', function(req, res) {
 });
 //------------------------------------------------
 
-router.post('/reviews/post', function(req, res) {
+router.post('/reviews/add', function(req, res) {
 	var userNew = new User();
     var reviewNew = new review();
     userNew.name = req.headers.name;
