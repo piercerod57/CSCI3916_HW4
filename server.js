@@ -185,7 +185,7 @@ router.get('/movies/get', function(req, res) {
 	var checkreview = req.headers.review;
 	console.log(checkreview);
 	
-		if(checkreview===false){
+		if(checkreview==="false"){
 			movie.find(function (err, movies) {
 				if (err) res.send(err);
 				// return the movies
