@@ -21,4 +21,4 @@ var ReviewSchema = new Schema({
 
 
 // return the model
-module.exports = mongoose.model('Movies', MovieSchema);
+module.exports = mongoose.model('Reviews', ReviewSchema);
