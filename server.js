@@ -7,6 +7,7 @@ var authJwtController = require('./auth_jwt');
 var User = require('./Users');
 var jwt = require('jsonwebtoken');
 var movie = require('./Movies');
+var review = require('./Reviews');
 
 
 var app = express();
@@ -181,15 +182,15 @@ router.put('/movies/update', function(req, res) {
 
 
 router.get('/movies/get', function(req, res) {
-	if(req.headers.review==false){
+	//if(req.headers.review==false){
 		movie.find(function (err, movies) {
 			if (err) res.send(err);
 			// return the movies
 			res.json(movies);
 		});
-	}else{
+	//}else{
 		
-	}
+	//}
 });
 
 
@@ -231,6 +232,21 @@ router.delete('/movies/delete', function(req, res) {
     });
 });
 //------------------------------------------------
+
+router.post('/reviews/post', function(req, res) {
+	movie.find(function (err, movies) {
+			if (err) res.send(err);
+			// return the movies
+			
+	});
+	
+	if(req.headers.review==false){
+		
+	}else{
+		
+	}
+});
+
 
 
 function trackDimension(category, action, label, value, dimension, metric) {
