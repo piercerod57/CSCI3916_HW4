@@ -12,9 +12,10 @@ var movie = require('./Movies');
 var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(passport.initialize());
 const GA_TRACKING_ID = process.env.GA_KEY;
 module.exports = app; // for testing
-app.use(passport.initialize());
+
 var router = express.Router();
 
 router.route('/postjwt')
@@ -180,11 +181,15 @@ router.put('/movies/update', function(req, res) {
 
 
 router.get('/movies/get', function(req, res) {
-    movie.find(function (err, movies) {
-        if (err) res.send(err);
-        // return the movies
-        res.json(movies);
-    });
+	if(req.headers.review==false){
+		movie.find(function (err, movies) {
+			if (err) res.send(err);
+			// return the movies
+			res.json(movies);
+		});
+	}else{
+		
+	}
 });
 
 
