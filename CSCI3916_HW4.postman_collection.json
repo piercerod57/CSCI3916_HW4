@@ -1,0 +1,312 @@
+{
+	"info": {
+		"_postman_id": "1a63916d-4190-4345-90ad-400220ba698e",
+		"name": "CSCI3916_HW4",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "signin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"jeff\",\n\t\"username\": \"mynamejeff\",\n\t\"password\": \"passwardo\"\n}"
+				},
+				"url": {
+					"raw": "https://csci3916hw4.herokuapp.com/signin",
+					"protocol": "https",
+					"host": [
+						"csci3916hw4",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post review",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "username",
+						"value": "mynamejeff",
+						"type": "text"
+					},
+					{
+						"key": "password",
+						"value": "passwardo",
+						"type": "text"
+					},
+					{
+						"key": "name",
+						"value": "jeff",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"David the Gnome\",\r\n  \"by\":\t\"mynamejeff\",\r\n  \"quote\": \"There's gnomes\",\r\n  \"rating\": \"5 Star\"\r\n}"
+				},
+				"url": {
+					"raw": "https://csci3916hw4.herokuapp.com/reviews",
+					"protocol": "https",
+					"host": [
+						"csci3916hw4",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"reviews"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post review (fail)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "username",
+						"type": "text",
+						"value": "mynamejeff"
+					},
+					{
+						"key": "password",
+						"type": "text",
+						"value": "passwardo"
+					},
+					{
+						"key": "name",
+						"value": "jeff",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Citizen Kane\",\r\n  \"by\":\t\"mynamejeff\",\r\n  \"quote\": \"There's not even any gnomes\",\r\n  \"rating\": \"1 Star\"\r\n}"
+				},
+				"url": {
+					"raw": "https://csci3916hw4.herokuapp.com/reviews",
+					"protocol": "https",
+					"host": [
+						"csci3916hw4",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"reviews"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get movie",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "name",
+						"type": "text",
+						"value": "bleff",
+						"disabled": true
+					},
+					{
+						"key": "username",
+						"type": "text",
+						"value": "mynamebleff",
+						"disabled": true
+					},
+					{
+						"key": "password",
+						"type": "text",
+						"value": "passwardo",
+						"disabled": true
+					},
+					{
+						"key": "review",
+						"value": "false",
+						"type": "text"
+					},
+					{
+						"key": "search",
+						"value": "Gnome Alone",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://csci3916hw4.herokuapp.com/movies/get",
+					"protocol": "https",
+					"host": [
+						"csci3916hw4",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"movies",
+						"get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get movie (fail)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "name",
+						"type": "text",
+						"value": "bleff",
+						"disabled": true
+					},
+					{
+						"key": "username",
+						"type": "text",
+						"value": "mynamebleff",
+						"disabled": true
+					},
+					{
+						"key": "password",
+						"type": "text",
+						"value": "passwardo",
+						"disabled": true
+					},
+					{
+						"key": "review",
+						"value": "false",
+						"type": "text"
+					},
+					{
+						"key": "search",
+						"value": "Citizen Kane",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://csci3916hw4.herokuapp.com/movies/get",
+					"protocol": "https",
+					"host": [
+						"csci3916hw4",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"movies",
+						"get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get movie review",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "name",
+						"type": "text",
+						"value": "bleff",
+						"disabled": true
+					},
+					{
+						"key": "username",
+						"type": "text",
+						"value": "mynamebleff",
+						"disabled": true
+					},
+					{
+						"key": "password",
+						"type": "text",
+						"value": "passwardo",
+						"disabled": true
+					},
+					{
+						"key": "review",
+						"value": "true",
+						"type": "text"
+					},
+					{
+						"key": "search",
+						"value": "Gnome Alone",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://csci3916hw4.herokuapp.com/movies/get",
+					"protocol": "https",
+					"host": [
+						"csci3916hw4",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"movies",
+						"get"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
