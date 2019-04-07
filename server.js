@@ -182,14 +182,22 @@ router.put('/movies/update', function(req, res) {
 
 
 router.get('/movies/get', function(req, res) {
-	//if(req.headers.review==false){
-		movie.find(function (err, movies) {
-			if (err) res.send(err);
-			// return the movies
-			res.json(movies);
-		});
-	//}else{
-		
+	//if(){	
+		if(req.headers.review==false){
+			movie.find(function (err, movies) {
+				if (err) res.send(err);
+				// return the movies
+				res.json(movies);
+			});
+		}else{
+			movie.find(function (err, movies) {
+				if (err) res.send(err);
+					review.find(function (err2, reviews) {
+						if (err2) res.send(err2);
+					});
+				res.json(movies, reviews);
+			});
+		}
 	//}
 });
 
@@ -239,12 +247,6 @@ router.post('/reviews/post', function(req, res) {
 			// return the movies
 			
 	});
-	
-	if(req.headers.review==false){
-		
-	}else{
-		
-	}
 });
 
 
