@@ -11,7 +11,8 @@ var review = require('./Reviews');
 
 
 var app = express();
-app.use(allowCrossDomain);
+var cors = require('cors'); 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(passport.initialize());
