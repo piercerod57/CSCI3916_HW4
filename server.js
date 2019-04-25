@@ -188,14 +188,14 @@ router.get('/movies/get', function(req, res) {
 	console.log(checkreview);
 	
 		if(checkreview==="false"){// a string for some reason
-			movie.find({ title: searchterm}, function (err, movies) {
+			movie.find(/*{ title: searchterm},*/ function (err, movies) {
 				if (err) res.send(err);
 				// return the movies
 				res.json(movies);
 			});
 		}else{
 			//var response;
-			movie.find({ title: searchterm}, function (err, movies) {
+			movie.find(/*{ title: searchterm},*/ function (err, movies) {
 					if (err) res.send(err);
 					
 					review.find(function (err2, reviews) {
